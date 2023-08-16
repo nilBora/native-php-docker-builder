@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DockerLoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,3 +20,5 @@ Route::get('/', function () {
 
 
 Route::get('/api/v1/make/dockerfile', [\App\Http\Controllers\Generator::class, 'make']);
+
+Route::get('/docker/login', [DockerLoginController::class, 'showLogin'])->name('login');;
