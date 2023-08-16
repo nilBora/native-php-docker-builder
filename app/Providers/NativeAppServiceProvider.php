@@ -2,8 +2,10 @@
 
 namespace App\Providers;
 
+use App\Event\DockerLoginEvent;
 use Native\Laravel\Facades\Window;
 use Native\Laravel\Contracts\ProvidesPhpIni;
+use Native\Laravel\Menu\Menu;
 
 class NativeAppServiceProvider implements ProvidesPhpIni
 {
@@ -13,7 +15,17 @@ class NativeAppServiceProvider implements ProvidesPhpIni
      */
     public function boot(): void
     {
-        Window::open()->width(800)->height(600);
+        Menu::new()->submenu('Docker',
+            Menu::new()
+                ->label("Hi there!")
+                ->separator()
+                ->event(DockerLoginEvent::class, "Docker Login")
+                ->quit()
+        )
+            ->fileMenu()
+            ->editMenu()
+            ->register();
+        Window::open()->width(800)->height(600)->route('/');
     }
 
     /**

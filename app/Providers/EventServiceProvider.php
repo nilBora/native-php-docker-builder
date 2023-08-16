@@ -2,10 +2,12 @@
 
 namespace App\Providers;
 
+use App\Event\DockerLoginEvent;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Event;
+use Native\Laravel\Facades\Window;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -25,7 +27,9 @@ class EventServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        Event::listen(DockerLoginEvent::class, function () {
+            Window::open('docker.login')->route('login')->title("Docker Login")->width(800)->height(600);
+        });
     }
 
     /**
