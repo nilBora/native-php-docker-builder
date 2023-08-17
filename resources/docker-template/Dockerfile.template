@@ -1,1 +1,8 @@
-{baseImage}
+ARG PHP_VER
+
+FROM {baseImage}
+
+RUN apk update
+RUN apk add --no-cache build-base
+RUN apk add --no-cache autoconf
+RUN apk add --no-cache automake
