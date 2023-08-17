@@ -31,8 +31,8 @@
                 <div class="mb-3">
                     <label for="dockerImages" class="form-label">Docker Images</label>
                     <select class="form-select" id="dockerImages">
-                        <option value="mysql">php-fpm-alipine</option>
-                        <option value="pgsql">php-cli-alpine</option>
+                        <option value="php:8.2-fpm-alpine">php:8.2-fpm-alpine</option>
+                        <option value="php:8.2-cli-alpine">php:8.2-cli-alpine</option>
                         <!-- Add more options as needed -->
                     </select>
                 </div>
