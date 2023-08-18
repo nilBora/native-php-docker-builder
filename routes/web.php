@@ -19,6 +19,6 @@ Route::get('/', function () {
 });
 
 
-Route::get('/api/v1/make/dockerfile', [\App\Http\Controllers\Generator::class, 'make']);
+Route::post('/api/v1/make/dockerfile', [\App\Http\Controllers\Generator::class, 'make']);
 
-Route::get('/docker/login', [DockerLoginController::class, 'showLogin'])->name('login');;
+Route::get('/docker/login', [DockerLoginController::class, 'showLogin'])->name('login');
