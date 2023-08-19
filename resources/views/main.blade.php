@@ -108,7 +108,7 @@
                         <option value="amqp">amqp</option>
                         <option value="zip">zip</option>
                         <option value="redis">redis</option>
-                        <option value="pdo">pdo</option>
+                        <option value="pdo_mysql">pdo_mysql</option>
                         <option value="pcntl">pcntl</option>
                         <!-- Add more options as needed -->
                     </select>
