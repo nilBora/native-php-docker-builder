@@ -19,7 +19,7 @@ class AlpineImageFactory implements ImageFactoryInterface
 
         $contents = $this->getPrepareContentsWithOptions($contents);
 
-        file_put_contents(resource_path('/docker-template/Dockerfile'), $contents);
+        file_put_contents(storage_path('/app/public/Dockerfile'), $contents);
     }
 
     private function getPrepareContentsWithOptions(string $contents): string
@@ -97,15 +97,12 @@ EOT,
 # mysql
 RUN docker-php-ext-install mysqli
 RUN docker-php-ext-enable mysqli
-\n
-EOT,
-            'pdo_mysql' => <<<EOT
 # pdo
 RUN docker-php-ext-install pdo_mysql
 RUN docker-php-ext-enable pdo_mysql
 \n
 EOT,
-            'pdo_pgsql' => <<<EOT
+            'pgsql' => <<<EOT
 RUN apk add --no-cache postgresql-dev
 RUN docker-php-ext-install pdo_pgsql
 RUN docker-php-ext-enable pdo_pgsql
