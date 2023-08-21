@@ -97,6 +97,10 @@
                 <div class="mb-3">
                     <label for="selectedOptions" class="form-label">Include in Image (Multiple Select)</label>
                     <select multiple class="form-select" id="selectedOptions" name="options[]">
+                        @foreach($allowPackages as $packageName => $packageOptions)
+
+                            <option value="{{ $packageName }}" @if(isset($packageOptions['default'])) selected  @endif>{{ $packageName }}</option>
+                        @endforeach
                         <option value="mysql">mysql</option>
                         <option value="pgsql">pgsql</option>
                         <option value="composer">composer</option>

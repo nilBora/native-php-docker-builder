@@ -14,9 +14,7 @@ use App\Http\Controllers\DockerLoginController;
 |
 */
 
-Route::get('/', function () {
-    return view('main');
-});
+Route::get('/', [\App\Http\Controllers\MainController::class, 'index']);
 
 
 Route::post('/api/v1/make/dockerfile', [\App\Http\Controllers\Generator::class, 'make']);
