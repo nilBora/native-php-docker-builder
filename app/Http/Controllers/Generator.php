@@ -10,7 +10,8 @@ class Generator extends Controller
 {
     public function make(Request $request)
     {
-        $formDto = new FormDto($request->get('docker-image'), $request->get('options'));
+        $options = $request->get('options') ?? [];
+        $formDto = new FormDto($request->get('docker-image'), $options, $request->get('tag'));
 
         $imageFactory = new ImageFactory($formDto->getBaseImage());
 
