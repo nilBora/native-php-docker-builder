@@ -4,9 +4,9 @@ namespace App\Factory;
 
 use App\Dto\FormDto;
 
-class AlpineImageFactory implements ImageFactoryInterface
+class AlpineImageFactory extends AbstractFactory implements ImageFactoryInterface
 {
-    public function __construct(private readonly FormDto $formDto)
+    public function __construct(protected readonly FormDto $formDto)
     {
     }
 
@@ -20,6 +20,8 @@ class AlpineImageFactory implements ImageFactoryInterface
         $contents = $this->getPrepareContentsWithOptions($contents);
 
         file_put_contents(storage_path('/app/public/Dockerfile'), $contents);
+
+        $this->buildImage(storage_path('/app/public/Dockerfile'));
     }
 
     private function getPrepareContentsWithOptions(string $contents): string

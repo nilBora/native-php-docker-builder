@@ -98,24 +98,13 @@
                     <label for="selectedOptions" class="form-label">Include in Image (Multiple Select)</label>
                     <select multiple class="form-select" id="selectedOptions" name="options[]">
                         @foreach($allowPackages as $packageName => $packageOptions)
-
                             <option value="{{ $packageName }}" @if(isset($packageOptions['default'])) selected  @endif>{{ $packageName }}</option>
                         @endforeach
-                        <option value="mysql">mysql</option>
-                        <option value="pgsql">pgsql</option>
-                        <option value="composer">composer</option>
-                        <option value="mcrypt">mcrypt</option>
-                        <option value="bcmath">bcmath</option>
-                        <option value="sockets">sockets</option>
-                        <option value="intl">intl</option>
-                        <option value="opcache">opcache</option>
-                        <option value="amqp">amqp</option>
-                        <option value="zip">zip</option>
-                        <option value="redis">redis</option>
-                        <option value="pdo_mysql">pdo_mysql</option>
-                        <option value="pcntl">pcntl</option>
-                        <!-- Add more options as needed -->
                     </select>
+                </div>
+                <div class="mb-3">
+                    <label for="dockerTag" class="form-label">Tag</label>
+                    <input type="text" class="form-control" id="dockerTag" name="tag" placeholder="Docker Tag">
                 </div>
                 <button type="submit" class="btn btn-primary">Build</button>
             </form>
