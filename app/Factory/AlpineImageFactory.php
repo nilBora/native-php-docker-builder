@@ -19,9 +19,10 @@ class AlpineImageFactory extends AbstractFactory implements ImageFactoryInterfac
 
         $contents = $this->getPrepareContentsWithOptions($contents);
 
-        file_put_contents(storage_path('/app/public/Dockerfile'), $contents);
+        $dockerFile = sprintf("/app/public/%s.Dockerfile", $this->formDto->getTag());
+        file_put_contents(storage_path($dockerFile), $contents);
 
-        $this->buildImage(storage_path('/app/public/Dockerfile'));
+        $this->buildImage(storage_path($dockerFile));
     }
 
     private function getPrepareContentsWithOptions(string $contents): string
