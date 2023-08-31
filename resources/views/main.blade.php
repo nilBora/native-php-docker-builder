@@ -104,7 +104,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="dockerTag" class="form-label">Tag</label>
-                    <input type="text" class="form-control" id="dockerTag" name="tag" placeholder="Docker Tag">
+                    <input required type="text" class="form-control" id="dockerTag" name="tag" placeholder="Docker Tag">
                 </div>
                 <button type="submit" class="btn btn-primary">Build</button>
             </form>
